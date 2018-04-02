@@ -20,6 +20,7 @@
         android:text="@string/toppings_header" />
 
     <CheckBox
+        android:id="@+id/checkbox_whipped_cream"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/spacing_large"

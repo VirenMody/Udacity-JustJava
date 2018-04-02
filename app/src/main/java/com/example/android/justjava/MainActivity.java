@@ -12,6 +12,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -50,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-        String message = createOrderSummary(price);
+        //CheckBox checkBoxHasWhippedCream = (CheckBox) findViewById(R.id.checkbox_whipped_cream);
+        //boolean hasWhippedCream = checkBoxHasWhippedCream.isChecked();
+        boolean hasWhippedCream = ((CheckBox) findViewById(R.id.checkbox_whipped_cream)).isChecked();
+        String message = createOrderSummary(price, hasWhippedCream);
         displayMessage(message);
 
     }
@@ -68,10 +72,12 @@ public class MainActivity extends AppCompatActivity {
      * Create summary of the order.
      *
      * @param price of the order
+     * @param hasWhippedCream whether customer wants whipped cream or not
      * @return text summary
      */
-    private String createOrderSummary(int price) {
+    private String createOrderSummary(int price, boolean hasWhippedCream) {
         String priceMessage = "Name: Kaptain Kunal\n" +
+                "Add whipped cream? " + hasWhippedCream + "\n" +
                 "Quantity: " + quantity + "\n" +
                 "Total: $" + price + "\n" +
                 "Thank you!";
