@@ -3,8 +3,10 @@
     <string name="quantity_header">Quantity</string>
     <string name="quantity">0</string>
     <string name="order_button">Order</string>
-    <string name="price_header">Price</string>
+    <string name="order_summary_header">Order Summary</string>
     <string name="price">$0</string>
     <string name="increment_button">+</string>
     <string name="decrement_button">-</string>
+    <string name="toppings_header">Toppings</string>
+    <string name="whipped_cream">Whipped cream</string>
 </resources>
