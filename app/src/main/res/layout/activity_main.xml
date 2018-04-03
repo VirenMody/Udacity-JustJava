@@ -15,9 +15,17 @@
         android:paddingTop="@dimen/vertical_page_margin"
         tools:context=".MainActivity">
 
+        <EditText
+            android:id="@+id/field_name"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/name"
+            android:inputType="textCapWords"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
             android:layout_marginBottom="@dimen/spacing_medium"
             android:textSize="@dimen/text_medium"
             android:textAllCaps="true"

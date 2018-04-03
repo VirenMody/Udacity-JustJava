@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -50,15 +51,18 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        // Calculate the price
-        int price = calculatePrice();
+        // Get customer's name from the input field
+        String name = ((EditText)findViewById(R.id.field_name)).getText().toString();
 
-        // Check to see if the user wants whipped cream and/or chocolate
+        // Check to see if the customer wants whipped cream and/or chocolate
         boolean hasWhippedCream = ((CheckBox) findViewById(R.id.checkbox_whipped_cream)).isChecked();
         boolean hasChocolate = ((CheckBox) findViewById(R.id.checkbox_chocolate)).isChecked();
 
+        // Calculate the price
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
+
         // Display the order summary
-        String message = createOrderSummary(price, hasWhippedCream, hasChocolate);
+        String message = createOrderSummary(name, price, hasWhippedCream, hasChocolate);
         displayMessage(message);
 
     }
@@ -66,22 +70,41 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Calculates the price of the order.
      *
+     * @param hasWhippedCream is whether customer wants whipped cream or not
+     * @param hasChocolate is whether customer wants chocolate or not
      * @return total price
      */
-    private int calculatePrice() {
-        return quantity * 5;
+    private int calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
+//        int costOfWhippedCream = hasWhippedCream? 1:0;
+//        int costOfChocolate = hasChocolate? 2:0;
+//        return quantity * (5 + costOfChocolate + costOfWhippedCream);
+
+        int price = 5;
+
+        // Add $1 if customer wants whipped cream
+        if(hasWhippedCream) {
+            price =+ 1;
+        }
+
+        // Add $2 if customer wants chocolate
+        if(hasChocolate) {
+            price += 2;
+        }
+
+        return quantity * price;
     }
 
     /**
      * Create summary of the order.
      *
+     * @param name of the customer
      * @param price of the order
-     * @param addWhippedCream is whether user wants whipped cream or not
-     * @param addChocolate is whether user wants whipped cream or not
+     * @param addWhippedCream is whether customer wants whipped cream or not
+     * @param addChocolate is whether customer wants chocolate or not
      * @return text summary
      */
-    private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate) {
-        String priceMessage = "Name: Kaptain Kunal\n" +
+    private String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate) {
+        String priceMessage = "Name: " + name + "\n" +
                 "Add whipped cream? " + addWhippedCream + "\n" +
                 "Add chocolate? " + addChocolate + "\n" +
                 "Quantity: " + quantity + "\n" +
