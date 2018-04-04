@@ -29,7 +29,7 @@
             android:layout_marginBottom="@dimen/spacing_medium"
             android:textSize="@dimen/text_medium"
             android:textAllCaps="true"
-            android:text="@string/toppings_header" />
+            android:text="@string/toppings" />
 
         <CheckBox
             android:id="@+id/checkbox_whipped_cream"
@@ -57,7 +57,7 @@
             android:layout_marginBottom="@dimen/spacing_medium"
             android:textSize="@dimen/text_medium"
             android:textAllCaps="true"
-            android:text="@string/quantity_header" />
+            android:text="@string/quantity" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                 android:layout_marginRight="@dimen/spacing_small"
                 android:textSize="@dimen/text_medium"
                 android:textColor="@color/colorPrimary"
-                android:text="@string/quantity" />
+                android:text="@string/quantity_value" />
 
             <Button
                 android:layout_width="@dimen/square_button_dimen"
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:textAllCaps="true"
             android:textSize="@dimen/text_medium"
-            android:text="@string/order_button"
+            android:text="@string/order"
             android:onClick="submitOrder" />
 
     </LinearLayout>

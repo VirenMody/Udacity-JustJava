@@ -78,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Create order summary and populate within compose email
         String message = createOrderSummary(name, price, hasWhippedCream, hasChocolate);
-        String subject = "JustJava order for " + name;
-
+        String subject = getString(R.string.order_summary_email_subject, name);
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -126,12 +125,12 @@ public class MainActivity extends AppCompatActivity {
      * @return text summary
      */
     private String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate) {
-        String priceMessage = "Name: " + name + "\n" +
-                "Add whipped cream? " + addWhippedCream + "\n" +
-                "Add chocolate? " + addChocolate + "\n" +
-                "Quantity: " + quantity + "\n" +
-                "Total: $" + price + "\n" +
-                "Thank you!";
+        String priceMessage = getString(R.string.order_summary_name, name) + "\n";
+        priceMessage += getString(R.string.order_summary_whipped_cream, addWhippedCream) + "\n";
+        priceMessage += getString(R.string.order_summary_chocolate, addChocolate) + "\n";
+        priceMessage += getString(R.string.order_summary_quantity, quantity) + "\n";
+        priceMessage += getString(R.string.order_summary_price, Integer.toString(price)) + "\n";
+        priceMessage += getString(R.string.thank_you);
         return priceMessage;
     }
 
