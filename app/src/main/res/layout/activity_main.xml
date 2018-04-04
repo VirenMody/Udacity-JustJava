@@ -93,23 +93,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_medium"
-            android:textSize="@dimen/text_medium"
-            android:textAllCaps="true"
-            android:text="@string/order_summary_header" />
-
-        <TextView
-            android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_medium"
-            android:textSize="@dimen/text_medium"
-            android:textColor="@color/colorPrimary"
-            android:text="@string/price" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
